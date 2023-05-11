@@ -17,15 +17,12 @@ def play_game():
     print(hidden_word)
 
     guesses = 3
-
     while guesses > 0:
         guess = input("please enter a letter: " + str(hidden_word))
         if guess in selected_word:
-            print("your guess is correct")
-            for i in range(len(selected_word)):
-                if guess == selected_word[i]:
-                    correct_letters[i] = guess
-                    print(correct_letters)
+            correct_letters.append(guess)
+            print(correct_letters)
+            print("Your guess is correct")
         else:
             guesses -= 1
             print("Try again, you have " + str(guesses) + " left.")
