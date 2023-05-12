@@ -21,6 +21,7 @@ def play_game():
 
     for guess in selected_word:
         correct_letters.append('_')
+    # print(selected_word)
 
     guesses = 3
     while guesses > 0:
@@ -29,7 +30,7 @@ def play_game():
             for i in range(len(selected_word)):
                 if guess == selected_word[i]:
                     correct_letters[i] = guess
-                    print("That letter is correct.")
+                    print()
         else:
             guesses -= 1
             print("Try again, you have " + str(guesses) + " left.")
