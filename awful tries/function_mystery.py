@@ -25,13 +25,12 @@ def main(word):
     guesses = 8
     print("\nHello! Solve this mystery word. \nYour random word has: " +
           str(len(word)) + " characters.")
-
-    while True:
+    game_over = False
+    while not game_over:
         if guesses != 0:
             print("\nYOU HAVE " +
                   str(guesses) + " CHANCES LEFT.")
-            print("Word so far: " + display_word(word, letters_guessed))
-            # print("Letters guessed: " + str(letters_guessed))
+            print(display_word(word, letters_guessed))
             guess = input("Guess: ")
 
             if guess not in letters_guessed:
@@ -40,11 +39,12 @@ def main(word):
             if display_word(word, letters_guessed) == word:
                 print("\nCongrats! You got the right word: " + word)
                 break
+
             else:
-                guesses -= 1
                 if guess in word:
                     print("Correct letter!")
                 else:
+                    guesses -= 1
                     print(guess + " is not in word")
         else:
             print("\nOops you ran out of guesses. Correct word was: " + word)
